@@ -24,9 +24,31 @@ const About: React.FC = () => {
           <p className="text-stone-500 font-light leading-relaxed">
             Entiendo que cada animal tiene sus miedos y sus alegrías. Respeto sus tiempos, espero el momento justo y dejo que la luz natural haga el resto.
           </p>
-          <div className="mt-8 flex space-x-6 grayscale opacity-60">
-            <span className="text-stone-900 border-b border-stone-900 pb-1 text-xs tracking-widest uppercase cursor-pointer hover:opacity-100 transition-opacity">Instagram</span>
-            <span className="text-stone-900 border-b border-stone-900 pb-1 text-xs tracking-widest uppercase cursor-pointer hover:opacity-100 transition-opacity">LinkedIn</span>
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4 grayscale opacity-60">
+            <a
+              href="https://www.instagram.com/victoriamonestes.ph/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-900 border-b border-stone-900 pb-1 text-xs tracking-widest uppercase cursor-pointer hover:opacity-100 transition-opacity"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://www.tiktok.com/@victoriamonestes.ph"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-900 border-b border-stone-900 pb-1 text-xs tracking-widest uppercase cursor-pointer hover:opacity-100 transition-opacity"
+            >
+              TikTok
+            </a>
+            <a
+              href="https://vickymonestes.wixsite.com/victoriamonestes?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnoyiH9DgklQ2Om056ADw-YRTOsstxu7g0qkSsFsklM6oZ4m8cJUs_r8w58qo_aem_oiGKDa32QCfSYcgpPoq2YA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-900 border-b border-stone-900 pb-1 text-xs tracking-widest uppercase cursor-pointer hover:opacity-100 transition-opacity"
+            >
+              Wix Portfolio
+            </a>
           </div>
         </div>
       </div>

@@ -148,7 +148,7 @@ const Pricing: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<PlanDetail | null>(null);
 
   return (
-    <section id="planes" style={{ backgroundColor: '#FAFAF9' }} className="py-24 md:py-48 px-6 overflow-hidden">
+    <section id="planes" style={{ backgroundColor: '#FFFFFF' }} className="py-24 md:py-48 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 md:mb-40 max-w-2xl mx-auto space-y-8">
           <div style={{ backgroundColor: '#8FA998' }} className="w-16 h-[1px] mx-auto opacity-30"></div>

@@ -10,7 +10,7 @@ import Contact from './components/Contact';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen selection:bg-stone-200 selection:text-stone-900">
+    <div style={{ backgroundColor: '#FFFFFF' }} className="min-h-screen selection:bg-stone-200 selection:text-stone-900">
       <Navbar />
       <main>
         <Hero />

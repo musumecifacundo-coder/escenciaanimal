@@ -6,10 +6,13 @@ const About: React.FC = () => {
     <section id="sobre-mi" className="py-32 px-6 max-w-5xl mx-auto">
       <div className="flex flex-col md:flex-row items-center gap-16">
         <div className="w-64 h-80 flex-shrink-0">
-          <img 
-            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600" 
-            alt="Victoria, fotógrafa" 
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/escenciaanimal-ecaa9.firebasestorage.app/o/Animales-Landing%2FIMG_1225.webp?alt=media"
+            alt="Victoria, fotógrafa"
             className="w-full h-full object-cover filter sepia-[20%] grayscale-[10%]"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600';
+            }}
           />
         </div>
         <div>

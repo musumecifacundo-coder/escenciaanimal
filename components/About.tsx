@@ -7,7 +7,7 @@ const About: React.FC = () => {
       <div className="flex flex-col md:flex-row items-center gap-16">
         <div className="w-64 h-80 flex-shrink-0">
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/escenciaanimal-ecaa9.firebasestorage.app/o/Animales-Landing%2FIMG_1225.webp?alt=media"
+            src="/images/victoria.png"
             alt="Victoria, fotógrafa"
             className="w-full h-full object-cover filter sepia-[20%] grayscale-[10%]"
             onError={(e) => {

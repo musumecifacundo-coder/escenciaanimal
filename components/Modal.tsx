@@ -29,12 +29,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         onClick={onClose}
       />
 
-      <div className="relative bg-[#FAFAF9] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl border border-stone-200">
-        <div className="sticky top-0 bg-[#FAFAF9] z-10 flex justify-between items-center p-8 md:p-10 border-b border-stone-100">
+      <div style={{ backgroundColor: '#E8F3E8', borderColor: '#8FA998', color: '#2F4F4F' }} className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl border">
+        <div style={{ backgroundColor: '#E8F3E8' }} className="sticky top-0 z-10 flex justify-between items-center p-8 md:p-10 border-b border-[#8FA998]/20">
           <h3 className="text-2xl md:text-3xl font-light serif italic">{title}</h3>
           <button
+            style={{ color: '#8FA998' }}
             onClick={onClose}
-            className="p-2 hover:bg-stone-100 transition-colors text-stone-400 hover:text-stone-900 text-3xl leading-none"
+            className="p-2 hover:bg-[#8FA998]/10 transition-colors text-3xl leading-none"
             aria-label="Cerrar"
           >
             &times;

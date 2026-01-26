@@ -93,18 +93,18 @@ const PlanCard: React.FC<{ plan: PlanDetail; onOpen: () => void }> = ({ plan, on
     </div>
 
     <div className="flex-grow">
-      <p className="text-stone-500 text-sm font-light leading-relaxed mb-10 italic serif">
+      <p className="text-stone-500 text-sm font-light leading-loose mb-10 italic serif tracking-wide">
         {plan.shortDesc}
       </p>
 
-      <div className="space-y-5 mb-12 border-t border-stone-100 pt-8">
-        <div className="flex items-center text-[11px] uppercase tracking-widest text-stone-600">
+      <div className="space-y-6 mb-12 border-t border-stone-100 pt-8">
+        <div className="flex items-center text-[11px] uppercase tracking-[0.4em] text-stone-600">
           <svg className="w-4 h-4 mr-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           {plan.duration}
         </div>
-        <div className="flex items-center text-[11px] uppercase tracking-widest text-stone-600">
+        <div className="flex items-center text-[11px] uppercase tracking-[0.4em] text-stone-600">
           <svg className="w-4 h-4 mr-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -116,7 +116,7 @@ const PlanCard: React.FC<{ plan: PlanDetail; onOpen: () => void }> = ({ plan, on
 
     <button
       onClick={onOpen}
-      className={`w-full py-5 text-[10px] uppercase tracking-[0.4em] transition-all duration-500 relative overflow-hidden group/btn ${plan.recommended ? 'bg-stone-900 text-stone-50 hover:bg-black' : 'border border-stone-200 text-stone-800 hover:border-stone-900'}`}
+      className={`w-full py-6 text-[10px] uppercase tracking-[0.5em] transition-all duration-500 relative overflow-hidden group/btn ${plan.recommended ? 'bg-stone-900 text-stone-50 hover:bg-black font-semibold' : 'border border-stone-200 text-stone-800 hover:border-stone-900'}`}
     >
       <span className="relative z-10 flex items-center justify-center">
         Explorar detalles
@@ -132,12 +132,12 @@ const Pricing: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<PlanDetail | null>(null);
 
   return (
-    <section id="planes" className="py-24 md:py-40 px-6 bg-[#F5F5F4] overflow-hidden">
+    <section id="planes" className="py-24 md:py-48 px-6 bg-[#F5F5F4] overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24 md:mb-32 max-w-2xl mx-auto space-y-6">
-          <div className="w-12 h-[1px] bg-stone-300 mx-auto opacity-50"></div>
-          <h2 className="text-4xl md:text-6xl font-light serif italic leading-tight">Propuestas</h2>
-          <p className="text-stone-500 font-light tracking-widest text-xs uppercase pt-2">
+        <div className="text-center mb-24 md:mb-40 max-w-2xl mx-auto space-y-8">
+          <div className="w-16 h-[1px] bg-stone-300 mx-auto opacity-50"></div>
+          <h2 className="text-5xl md:text-7xl font-light serif italic leading-tight tracking-tight">Propuestas</h2>
+          <p className="text-stone-500 font-light tracking-[0.5em] text-[10px] uppercase pt-2">
             Historias Narradas a través de la Luz
           </p>
         </div>
@@ -159,35 +159,33 @@ const Pricing: React.FC = () => {
         title={selectedPlan?.title || ""}
       >
         {selectedPlan && (
-          <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="border-l border-stone-200 pl-8 py-2">
-              <p className="text-stone-600 font-light leading-relaxed serif italic text-lg">
+          <div className="space-y-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="border-l border-stone-200 pl-8 md:pl-12 py-4">
+              <p className="text-stone-600 font-light leading-loose serif italic text-xl tracking-wide">
                 {selectedPlan.description}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="space-y-6">
-                <h4 className="text-[10px] uppercase tracking-[0.4em] text-stone-900 font-semibold mb-6">La Experiencia</h4>
-                <ul className="space-y-5">
+            <div className="grid lg:grid-cols-2 gap-16 md:gap-24">
+              <div className="space-y-8">
+                <h4 className="text-[11px] uppercase tracking-[0.5em] text-stone-900 font-bold mb-8 opacity-70">La Experiencia</h4>
+                <ul className="space-y-6">
                   {selectedPlan.experience.map((item, i) => (
-                    <li key={i} className="text-stone-500 text-sm font-light flex items-start">
-                      <span className="w-1 h-[1px] bg-stone-300 mr-4 mt-2.5"></span>
-                      <span className="leading-relaxed">{item}</span>
+                    <li key={i} className="text-stone-500 text-base font-light flex items-start leading-relaxed">
+                      <span className="w-2 h-[1px] bg-stone-300 mr-5 mt-3.5"></span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="space-y-6">
-                <h4 className="text-[10px] uppercase tracking-[0.4em] text-stone-900 font-semibold mb-6">El Entregable</h4>
-                <ul className="space-y-5">
+              <div className="space-y-8">
+                <h4 className="text-[11px] uppercase tracking-[0.5em] text-stone-900 font-bold mb-8 opacity-70">El Entregable</h4>
+                <ul className="space-y-6">
                   {selectedPlan.includes.map((item, i) => (
-                    <li key={i} className="text-stone-500 text-sm font-light flex items-start">
-                      <svg className="w-3.5 h-3.5 mr-4 mt-0.5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="leading-relaxed">{item}</span>
+                    <li key={i} className="text-stone-500 text-base font-light flex items-start leading-relaxed">
+                      <span className="text-stone-400 mr-5 mt-0.5 text-lg">✅</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -195,25 +193,25 @@ const Pricing: React.FC = () => {
             </div>
 
             {selectedPlan.optional && (
-              <div className="pt-10 border-t border-stone-100">
-                <h4 className="text-[10px] uppercase tracking-[0.4em] text-stone-900 font-semibold mb-4">Servicios Opcionales</h4>
-                <p className="text-stone-500 text-sm font-light italic serif">
+              <div className="pt-12 border-t border-stone-100">
+                <h4 className="text-[11px] uppercase tracking-[0.5em] text-stone-900 font-bold mb-6 opacity-70">Servicios Opcionales</h4>
+                <p className="text-stone-500 text-lg font-light italic serif leading-loose tracking-wide">
                   {selectedPlan.optional}
                 </p>
               </div>
             )}
 
-            <div className="bg-white p-8 md:p-12 border border-stone-100 shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-[2px] h-full bg-stone-900 opacity-20"></div>
-              <div className="flex items-start gap-6">
-                <div className="text-stone-300">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <div className="bg-white p-10 md:p-16 border border-stone-100 shadow-sm relative overflow-hidden group/note">
+              <div className="absolute top-0 left-0 w-[3px] h-full bg-stone-900 opacity-20 group-hover/note:opacity-100 transition-opacity duration-700"></div>
+              <div className="flex items-start gap-8">
+                <div className="text-stone-300 transition-colors duration-500 group-hover/note:text-stone-900">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.75" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h5 className="text-[10px] uppercase tracking-[0.3em] text-stone-500 font-bold mb-3">Nota Importante</h5>
-                  <p className="text-sm text-stone-500 leading-relaxed italic serif opacity-80">
+                  <h5 className="text-[11px] uppercase tracking-[0.4em] text-stone-900 font-bold mb-4">Nota Importante</h5>
+                  <p className="text-base text-stone-500 leading-loose italic serif opacity-90 tracking-wide">
                     "El foco siempre está puesto en el bienestar del animal y la calidad del registro, no en la cantidad.
                     Por eso, la cantidad final de imágenes puede variar levemente dentro del rango indicado,
                     respondiendo siempre al desarrollo natural del encuentro."

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Manifesto: React.FC = () => {
   return (
-    <section style={{ backgroundColor: '#FFFFFF' }} className="py-32 px-6">
+    <section style={{ backgroundColor: '#FFFFFF' }} className="py-20 md:py-32 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <span className="text-stone-400 text-xs tracking-[0.4em] uppercase mb-8 block font-light">Manifiesto</span>
         <h2 className="text-3xl md:text-5xl leading-relaxed font-light italic serif text-stone-800">

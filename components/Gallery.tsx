@@ -13,7 +13,7 @@ const Gallery: React.FC = () => {
   ];
 
   return (
-    <section id="galeria" style={{ backgroundColor: '#FFFFFF' }} className="py-24 px-6 md:px-12">
+    <section id="galeria" style={{ backgroundColor: '#FFFFFF' }} className="py-20 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-4">
           <h2 style={{ color: '#2F4F4F' }} className="text-4xl md:text-5xl font-light serif italic leading-tight">Portafolio</h2>

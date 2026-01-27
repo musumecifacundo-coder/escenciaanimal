@@ -80,7 +80,10 @@ const plans: PlanDetail[] = [
 ];
 
 const PlanCard: React.FC<{ plan: PlanDetail; onOpen: () => void }> = ({ plan, onOpen }) => (
-  <div className={`p-10 md:p-12 flex flex-col h-full bg-white border border-stone-100 transition-all duration-500 ${plan.recommended ? 'shadow-[0_20px_50px_rgba(0,0,0,0.05)] scale-[1.05] z-10' : 'hover:border-stone-200'}`}>
+  <div className={`p-10 md:p-12 flex flex-col h-full border transition-all duration-500 ${plan.recommended
+    ? 'bg-stone-50/50 border-stone-200 shadow-[0_20px_50px_rgba(0,0,0,0.05)] md:scale-[1.05] z-10'
+    : 'bg-white border-stone-100 hover:border-stone-200'
+    }`}>
     {plan.recommended && (
       <div className="mb-8 flex items-center justify-center">
         <span className="text-[10px] uppercase tracking-[0.3em] text-stone-400">— RECOMENDADO</span>
@@ -122,11 +125,28 @@ const Pricing: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<PlanDetail | null>(null);
 
   return (
-    <section id="planes" className="py-32 px-6 bg-[#FFFFFF]">
+    <section id="planes" className="py-20 md:py-32 px-6 bg-[#FFFFFF]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24 max-w-2xl mx-auto space-y-6">
-          <p className="text-xl serif font-light italic text-stone-500">
-            Cada historia merece ser contada de forma única.
+        <div className="text-center mb-24 max-w-2xl mx-auto space-y-12">
+          {/* Banner de Descuento */}
+          <div className="inline-block relative">
+            <div className="absolute inset-0 bg-stone-100 blur-2xl opacity-40 -z-10"></div>
+            <div className="border border-stone-300 py-3 px-8 rounded-full flex items-center gap-4 bg-stone-50/90 backdrop-blur-sm shadow-sm animate-fade-in">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-stone-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-stone-600"></span>
+              </span>
+              <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-stone-900">
+                Especial Lanzamiento: <span className="underline decoration-stone-400 underline-offset-4">20% OFF</span> en todas las reservas
+              </p>
+            </div>
+          </div>
+
+          <p className="text-xl serif font-light italic text-stone-600">
+            Cada historia merece ser contada de forma única. <br />
+            <span className="text-[10px] uppercase tracking-[0.2em] font-medium block mt-4 text-stone-400">
+              * Válido para compras en febrero, sesiones en cualquier mes.
+            </span>
           </p>
         </div>
 

@@ -3,15 +3,15 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
-        <div className="animate-fade-in z-10">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl mb-6 leading-tight">
+    <section className="relative min-h-screen flex items-center pt-24 md:pt-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 md:gap-12 items-center">
+        <div className="animate-fade-in z-10 text-center md:text-left">
+          <h1 className="text-5xl md:text-8xl lg:text-9xl mb-6 leading-tight">
             Esencia <br />
             <span className="italic">Animal</span>
           </h1>
-          <p className="text-stone-600 text-lg md:text-xl font-light max-w-md leading-relaxed mb-10">
-            Un encuentro. Un tiempo compartido. <br />
+          <p className="text-stone-600 text-lg md:text-xl font-light max-w-md mx-auto md:mx-0 leading-relaxed mb-10">
+            Un encuentro. Un tiempo compartido. <br className="hidden md:block" />
             Fotografía que respeta su propio ritmo.
           </p>
           <button

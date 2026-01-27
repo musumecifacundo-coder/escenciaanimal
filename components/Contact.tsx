@@ -9,21 +9,54 @@ const Contact: React.FC = () => {
     mensaje: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Gracias por escribir. Victoria se pondrá en contacto pronto.');
+    setStatus('loading');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: "TU_ACCESS_KEY_AQUI", // Reemplazar con la clave de web3forms.com
+          ...formData,
+          from_name: "Esencia Animal Web",
+          subject: `Nuevo mensaje de ${formData.nombre} - Esencia Animal`
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success');
+        setFormData({ nombre: '', mascota: '', email: '', mensaje: '' });
+        alert('¡Mensaje enviado con éxito! Facundo se pondrá en contacto pronto.');
+      } else {
+        setStatus('error');
+        alert('Hubo un error al enviar el mensaje. Por favor intenta por WhatsApp.');
+      }
+    } catch (error) {
+      setStatus('error');
+      alert('Error de conexión. Por favor intenta por WhatsApp.');
+    } finally {
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   return (
-    <section id="contacto" className="py-32 px-6 bg-stone-900 text-stone-50">
+    <section id="contacto" className="py-20 md:py-32 px-6 bg-stone-900 text-stone-50">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
-        <div>
+        <div className="text-center md:text-left">
           <h2 className="text-5xl md:text-7xl mb-8 leading-tight font-light italic serif">Comienza la <br />historia.</h2>
-          <p className="text-stone-400 font-light text-xl mb-12 max-w-sm">
-            ¿Listo para capturar el alma de tu compañero? Escríbeme y charlemos sobre vuestro ritmo.
+          <p className="text-stone-400 font-light text-xl mb-12 max-w-sm mx-auto md:mx-0">
+            ¿Listo para capturar el alma de tu compañero? Escríbeme y charlemos sobre nuestro ritmo.
           </p>
 
-          <div className="space-y-6">
+          <div className="flex flex-col items-center md:items-start space-y-6">
             <button
               className="flex items-center space-x-4 group text-stone-200 hover:text-white transition-colors"
               onClick={() => window.open('https://wa.me/5493413033411', '_blank')}
@@ -33,7 +66,7 @@ const Contact: React.FC = () => {
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <span className="text-sm tracking-widest uppercase">Escribir por WhatsApp</span>
+              <span className="text-sm tracking-widest uppercase">Escribime por WhatsApp</span>
             </button>
           </div>
         </div>
@@ -82,9 +115,13 @@ const Contact: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full py-4 bg-stone-50 text-stone-900 hover:bg-white transition-all duration-300 text-xs uppercase tracking-[0.3em] font-medium"
+            disabled={status === 'loading'}
+            className={`w-full py-4 text-xs uppercase tracking-[0.3em] font-medium transition-all duration-300 ${status === 'loading'
+                ? 'bg-stone-500 text-stone-200 cursor-not-allowed'
+                : 'bg-stone-50 text-stone-900 hover:bg-white'
+              }`}
           >
-            Enviar Solicitud
+            {status === 'loading' ? 'Enviando...' : '¿Charlamos?'}
           </button>
         </form>
       </div>

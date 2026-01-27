@@ -20,10 +20,18 @@ const App: React.FC = () => {
         <About />
         <Contact />
       </main>
-      <footer className="py-12 px-6 border-t border-stone-200 text-center">
-        <p className="text-stone-400 text-sm tracking-widest uppercase">
-          &copy; {new Date().getFullYear()} Esencia Animal — Victoria
-        </p>
+      <footer className="py-16 px-6 border-t border-stone-100/50">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-stone-400 text-[10px] tracking-[0.2em] uppercase">
+            &copy; {new Date().getFullYear()} Esencia Animal
+          </p>
+          <div className="flex items-center gap-4">
+            <span className="w-8 h-px bg-stone-100"></span>
+            <p className="text-stone-400 text-[10px] tracking-[0.2em] uppercase">
+              Hecho por <span className="text-stone-900 font-medium">Facundo Musumeci</span>
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );

@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: "TU_ACCESS_KEY_AQUI", // Reemplazar con la clave de web3forms.com
+          access_key: "8b11f288-f901-4b24-a7f1-cd2091d60b75",
           ...formData,
           from_name: "Esencia Animal Web",
           subject: `Nuevo mensaje de ${formData.nombre} - Esencia Animal`
@@ -117,8 +117,8 @@ const Contact: React.FC = () => {
             type="submit"
             disabled={status === 'loading'}
             className={`w-full py-4 text-xs uppercase tracking-[0.3em] font-medium transition-all duration-300 ${status === 'loading'
-                ? 'bg-stone-500 text-stone-200 cursor-not-allowed'
-                : 'bg-stone-50 text-stone-900 hover:bg-white'
+              ? 'bg-stone-500 text-stone-200 cursor-not-allowed'
+              : 'bg-stone-50 text-stone-900 hover:bg-white'
               }`}
           >
             {status === 'loading' ? 'Enviando...' : '¿Charlamos?'}

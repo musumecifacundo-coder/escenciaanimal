@@ -31,6 +31,7 @@ const Contact: React.FC = () => {
       });
 
       const result = await response.json();
+      console.log("Web3Forms Result:", result);
       if (result.success) {
         setStatus('success');
         setFormData({ nombre: '', mascota: '', email: '', mensaje: '' });

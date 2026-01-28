@@ -30,8 +30,8 @@ const Contact: React.FC = () => {
           </button>
 
           {/* Secondary CTA: Email */}
-          <a
-            href="mailto:victoriamonestes.ph@gmail.com?subject=Consulta%20desde%20la%20web"
+          <button
+            onClick={() => window.location.href = 'mailto:victoriamonestes.ph@gmail.com?subject=Consulta%20desde%20la%20web'}
             className="flex items-center space-x-4 text-stone-400 hover:text-white transition-colors duration-300 group py-4 px-8"
           >
             <div className="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity">
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
               </svg>
             </div>
             <span className="text-xs md:text-sm tracking-[0.2em] uppercase font-light border-b border-transparent group-hover:border-stone-500 pb-1">o mandame un mail</span>
-          </a>
+          </button>
         </div>
 
         <div className="mt-24 pt-12 border-t border-stone-800/50">

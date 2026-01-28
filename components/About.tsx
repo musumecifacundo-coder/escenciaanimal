@@ -19,10 +19,10 @@ const About: React.FC = () => {
           <span className="text-stone-400 text-xs tracking-[0.3em] uppercase mb-4 block">La mirada</span>
           <h2 className="text-4xl mb-6 font-light italic serif">Soy Victoria.</h2>
           <p className="text-stone-600 font-light leading-relaxed text-lg mb-6">
-            Busco retratar la honestidad de tu compañero de vida, lejos de las poses forzadas. Mi trabajo no consiste en capturar la "mejor foto", sino en capturar la verdadera esencia de ese ser que te acompaña cada día.
+            Deseo retratar la honestidad de tu compañero de vida lejos de las poses forzadas. No quiero capturar la "mejor foto" sino, registrar la verdadera esencia de ese ser que te acompaña cada día.
           </p>
           <p className="text-stone-500 font-light leading-relaxed">
-            Entiendo que cada animal tiene sus miedos y sus alegrías. Respeto sus tiempos, espero el momento justo y dejo que la luz natural haga el resto.
+            Y así es como, al encuentro de la experiencia voy, con mi cuerpo al mundo. Paso a paso, dando lugar al tiempo y dejando sentar a la inmediatez. Miro y escucho lo que rodea, para obturar una imagen silenciosa que hable por sí sola.
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4 grayscale opacity-60">
             <a

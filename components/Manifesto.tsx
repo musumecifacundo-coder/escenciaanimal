@@ -7,8 +7,7 @@ const Manifesto: React.FC = () => {
       <div className="max-w-4xl mx-auto text-center">
         <span className="text-stone-400 text-xs tracking-[0.4em] uppercase mb-8 block font-light">Manifiesto</span>
         <h2 className="text-3xl md:text-5xl leading-relaxed font-light italic serif text-stone-800">
-          "Cada animal propone su propio ritmo. La sesión se construye a partir de eso.
-          Sin prisas, con luz natural y en la intimidad de su hogar."
+          "Cada animal tiene su propio ritmo. Construir un recuerdo sensible y auténtico, que permanezca en el tiempo, será nuestra ilusión. Sin forzar situaciones ni dirigiendo escenas, sino generando un encuentro tranquilo, donde la presencia, la observación y el cuidado permitan registrar aquella esencia que los hace únicos."
         </h2>
         <div className="mt-12 h-16 w-px bg-stone-200 mx-auto"></div>
       </div>

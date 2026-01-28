@@ -60,10 +60,10 @@ const plans: PlanDetail[] = [
   {
     title: "Familia Multiespecie",
     price: "$ 170.000",
-    shortDesc: "Para hogares con 2 o más animales (hasta 3). Foco en la dinámica grupal y vínculos compartidos.",
+    shortDesc: "Contempla hasta 3 animales. Foco en la dinámica grupal y vínculos compartidos.",
     duration: "2 horas aprox.",
     photos: "30 a 35 fotos editadas.",
-    description: "¿Para quién es esta sesión? Diseñada específicamente para capturar la \"manada\". No es solo hacer fotos a varios animales, sino registrar la atención y la dinámica que existe entre ellos.",
+    description: "¿Para quién es esta sesión? Un diseño que busca capturar la esencia de la \"manada\", mediante registros individuales y grupales que respetan la dinámica existente.",
     experience: [
       "Cobertura: Hasta 3 animales incluidos en el valor.",
       "Duración: 2 horas aprox. (Con duración flexible según el grupo).",
@@ -81,7 +81,7 @@ const plans: PlanDetail[] = [
 
 const PlanCard: React.FC<{ plan: PlanDetail; onOpen: () => void }> = ({ plan, onOpen }) => (
   <div className={`p-10 md:p-12 flex flex-col h-full border transition-all duration-500 ${plan.recommended
-    ? 'bg-stone-50/50 border-stone-200 shadow-[0_20px_50px_rgba(0,0,0,0.05)] md:scale-[1.05] z-10'
+    ? 'bg-[#d1d5cb] border-stone-300 shadow-[0_20px_50px_rgba(0,0,0,0.08)] md:scale-[1.05] z-10'
     : 'bg-white border-stone-100 hover:border-stone-200'
     }`}>
     {plan.recommended && (
@@ -127,8 +127,8 @@ const Pricing: React.FC = () => {
   return (
     <section id="planes" className="py-20 md:py-32 px-6 bg-[#FFFFFF]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24 max-w-2xl mx-auto space-y-12">
-          {/* Banner de Descuento */}
+        <div className="text-center mb-20 max-w-2xl mx-auto space-y-10">
+          {/* 1. Banner de Descuento */}
           <div className="inline-block relative">
             <div className="absolute inset-0 bg-stone-100 blur-2xl opacity-40 -z-10"></div>
             <div className="border border-stone-300 py-3 px-8 rounded-full flex items-center gap-4 bg-stone-50/90 backdrop-blur-sm shadow-sm animate-fade-in">
@@ -142,22 +142,73 @@ const Pricing: React.FC = () => {
             </div>
           </div>
 
-          <p className="text-xl serif font-light italic text-stone-600">
-            Cada historia merece ser contada de forma única. <br />
-            <span className="text-[10px] uppercase tracking-[0.2em] font-medium block mt-4 text-stone-400">
-              * Válido para compras en febrero, sesiones en cualquier mes.
-            </span>
+          {/* 2. Nota de Fecha */}
+          <p className="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-400 animate-fade-in">
+            * Válido para compras en febrero, sesiones en cualquier mes.
+          </p>
+
+          {/* 3. Texto Introductorio */}
+          <p className="text-xl md:text-2xl serif font-light italic text-stone-600 leading-relaxed uppercase tracking-widest">
+            Formas de contar la historia
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 lg:gap-10">
-          {plans.map((plan, index) => (
-            <PlanCard
-              key={index}
-              plan={plan}
-              onOpen={() => setSelectedPlan(plan)}
-            />
-          ))}
+        {/* Mobile: Horizontal Slider | Desktop: Grid */}
+        <div className="relative group/pricing">
+          {/* Mobile indicator - subtle helper above */}
+          <div className="flex md:hidden items-center justify-center gap-2 mb-4 text-stone-400">
+            <span className="text-[10px] uppercase tracking-[0.2em]">Desliza para explorar</span>
+            <div className="flex gap-1">
+              <span className="w-1 h-1 rounded-full bg-stone-300 animate-pulse"></span>
+              <span className="w-1 h-1 rounded-full bg-stone-300 animate-pulse [animation-delay:200ms]"></span>
+              <span className="w-1 h-1 rounded-full bg-stone-300 animate-pulse [animation-delay:400ms]"></span>
+            </div>
+          </div>
+
+          <div className="relative">
+            {/* Visual Arrows - Decorative indicators for mobile */}
+            <div className="absolute left-2 top-1/2 -translate-y-1/2 md:hidden z-20 pointer-events-none opacity-40">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6 text-stone-400">
+                <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 md:hidden z-20 pointer-events-none animate-bounce-horizontal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-8 h-8 text-stone-400">
+                <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
+            <div
+              id="plans-slider"
+              className="flex overflow-x-auto md:grid md:grid-cols-3 gap-8 md:gap-4 lg:gap-10 pb-12 md:pb-0 snap-x snap-mandatory hide-scrollbar group"
+            >
+              {plans.map((plan, index) => (
+                <div key={index} className="min-w-[85vw] md:min-w-0 snap-center">
+                  <PlanCard
+                    plan={plan}
+                    onOpen={() => setSelectedPlan(plan)}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination Dots - Mobile only */}
+            <div className="flex md:hidden justify-center gap-3 mt-4">
+              {plans.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === 1 ? 'w-6 bg-stone-400 shadow-sm' : 'w-1.5 bg-stone-200'}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Welfare Note - Footer of Pricing */}
+        <div className="mt-20 pt-10 border-t border-stone-100 max-w-3xl mx-auto text-center">
+          <p className="text-stone-400 font-light text-sm leading-relaxed serif italic">
+            "El foco siempre estará puesto en el bienestar del animal y en la calidad del registro, por lo que la cantidad de fotografías podrá variar dentro del rango indicado según el desarrollo natural del encuentro."
+          </p>
         </div>
       </div>
 
@@ -208,25 +259,6 @@ const Pricing: React.FC = () => {
                 </p>
               </div>
             )}
-
-            <div className="bg-stone-50 p-10 md:p-16 border border-stone-100 shadow-sm relative overflow-hidden group/note">
-              <div className="absolute top-0 left-0 w-[4px] h-full bg-stone-900 opacity-20 group-hover/note:opacity-100 transition-opacity duration-700"></div>
-              <div className="flex items-start gap-8">
-                <div className="text-stone-300 transition-colors duration-500 group-hover/note:text-stone-900">
-                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.75" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h5 className="text-[11px] uppercase tracking-[0.4em] font-bold text-stone-900 mb-4">Importante sobre tu sesión</h5>
-                  <p className="text-base leading-loose italic serif opacity-80 tracking-wide">
-                    "El foco siempre está puesto en el bienestar del animal y la calidad del registro, no en la cantidad.
-                    Por eso, la cantidad final de imágenes puede variar levemente dentro del rango indicado,
-                    respondiendo siempre al desarrollo natural del encuentro."
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         )}
       </Modal>

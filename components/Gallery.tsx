@@ -16,8 +16,8 @@ const Gallery: React.FC = () => {
     <section id="galeria" style={{ backgroundColor: '#FFFFFF' }} className="py-20 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-4">
-          <h2 style={{ color: '#2F4F4F' }} className="text-4xl md:text-5xl font-light serif italic leading-tight">Portafolio</h2>
-          <p style={{ color: '#8FA998' }} className="font-light tracking-widest text-xs uppercase">Instantes de silencio y luz</p>
+          <h2 style={{ color: '#2F4F4F' }} className="text-4xl md:text-5xl font-light serif italic leading-tight">Momentos</h2>
+          <p style={{ color: '#8FA998' }} className="font-light tracking-widest text-xs uppercase">Instantes de presencia y luz</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 items-center">

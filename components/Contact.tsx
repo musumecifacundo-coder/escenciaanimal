@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
 
           {/* Secondary CTA: Email */}
           <a
-            href="mailto:victoriamonestes.ph@gmail.com"
+            href="mailto:victoriamonestes.ph@gmail.com?subject=Consulta%20desde%20la%20web"
             className="flex items-center space-x-4 text-stone-400 hover:text-white transition-colors duration-300 group py-4 px-8"
           >
             <div className="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity">
